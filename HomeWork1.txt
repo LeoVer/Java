@@ -1,0 +1,100 @@
+import java.util.Arrays;
+import java.util.ServiceLoader;
+
+/**
+ * Created by SomeSound on 08.03.2016.
+ */
+public class HomeWork {
+
+    public static void main(String[] args) {
+
+        //Задание №1
+        int[] mas0 = {0, 1, 0, 1, 0, 1, 0, 1, 0, 1};
+        System.out.println("Вывод одномерного массива: " + Arrays.toString(mas0));
+       //Задание №2
+        int[] mas1 = new int[8];
+        for (int i=0; i < 8; i++){
+            mas1[i]=1+i*3;
+        }
+        System.out.println("Ответ на заднаие №2: " + Arrays.toString(mas1));
+        //Задание №3
+    System.out.println("Ответ на заднаие №3: ");
+    System.out.println("Результат сложения: " + Slozhenie(5,5));//Сложение
+    System.out.println("Результат вычитания: " + Vichitanie(5,5));//Вычитание
+    System.out.println("Результат деления: " + Delenie(5,5));//Деление
+    System.out.println("Результат умножения: " + Umnozhenie(5,5));//Деление
+
+        // Задание №4
+        int a = Slozhenie(2,3);
+        int b = Umnozhenie(a,5);
+        double c = Delenie2(b,2);
+
+        System.out.println("Ответ на заднаие №4: ");
+        System.out.println("Ответ на расчет выражения ((2 + 3) * 5) / 2 = " + c);
+
+        //Задание №5
+        System.out.println("Ответ на заднаие №5: ");
+        int[][] mas2 = {{1, 2, 3},{4, 5, 6},{7, 8, 9}};
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                            }
+            System.out.println(" * " + Arrays.toString(mas2));
+        }
+        //Задание №6
+        int[] mas3 = {-1, -6, 0, 2, 3, 31, 3, 5};
+        // поиск минимума
+        int min = mas3[0];
+        for(int i = 0; i < mas3.length; i++)
+        {
+            if(min > mas3[i])
+                min=mas3[i];
+        }
+        System.out.println("Ответ на заднаие №6: ");
+        System.out.println("Минимальное значение: " + min);
+        // поиск максимума
+        int max = mas3[0];
+        for(int i = 0; i < mas3.length; i++)
+        {
+            if(max < mas3[i])
+                max = mas3[i];
+        }
+        System.out.println("Максимальное значение: " + max);
+        //Задание №7
+        System.out.println("Ответ на заднаие №7: ");
+        System.out.println("Вывод массива от 1 до 10: ");
+        int[][] mas4 = new int[2][5];
+        int i, j, k = 1;
+        for(i=0; i < 2; i++)
+            for (j = 0; j < 5; j++) {
+                mas4[i][j]=k;
+                k++;
+            }
+        for(i=0; i < 2; i++){
+            for (j = 0; j < 5; j++)
+
+                System.out.println(Arrays.toString(mas4));
+        }
+            }
+        {
+
+        }
+
+
+    //Арифметические данные
+    public static int Slozhenie(int a, int b) {
+      return a+b;
+    };
+    public static int Vichitanie (int a, int b) {
+        return a-b;
+    };
+    public static int Delenie (int a, int b) {
+        return a/b;
+    };
+    public static double Delenie2 (double a, double b) {
+        return a/b;
+    }; //дополнительный метод введенный для задания №4
+    public static int Umnozhenie (int a, int b) {
+        return a*b;
+    };
+}
+
