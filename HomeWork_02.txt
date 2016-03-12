@@ -1,0 +1,112 @@
+/**
+ * Created by SomeSound on 10.03.2016.
+ */
+public class MainClass {
+    public static void main(String[] args) {
+        //задание параметров на сотрудника
+        Workman s1 = new Workman("Иванов Иван Иванович", "CEO", "iii@mailbox.com", "+7(911)111-11-11", 100000, 40);
+        Workman s2 = new Workman("Петров Петр Петрович", "Senior Programmer", "ppp@mailbox.com", "+7(911)222-22-22", 70000, 35);
+        Workman s3 = new Workman("Сидоров Сидр Сидорович", "Programmer", "sss@mailbox.com", "+7(911)333-33-33", 50000, 30);
+        Workman s4 = new Workman("Андреев Андрей Андреевич", "Junior Programmer", "aaa@mailbox.com", "+7(911)444-44-44", 30000, 25);
+        Workman s5 = new Workman();
+
+        // вывод на печать
+        s1.info();
+        s1.printInfo();
+        s2.info();
+        s2.printInfo();
+        s3.info();
+        s3.printInfo();
+        s4.info();
+        s4.printInfo();
+        s5.info();
+        s5.printInfo();
+
+    }
+}
+
+
+
+
+/**
+ * Created by SomeSound on 10.03.2016.
+ */
+public class Workman {
+    //Геттери и сеттеры
+    public String getFio() {
+        return fio;
+    }
+
+    public void setFio(String fio) {
+        this.fio = fio;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    //Параметры сотрудника
+    private String fio;
+    private String position;
+    private String email;
+    private String telephone;
+    private int salary;
+    private int age;
+
+
+    //Параметры по-умолчанию
+    public Workman () {
+        fio = "Нет данных о ФИО";
+        position = "Нет данных о должности";
+        email = "Нет E-mail";
+        telephone = "Нет телефона";
+        salary = 00000;
+        age = 00;
+    }
+    //Конструктор
+ public Workman (String _fio, String _position, String _email, String _telephone, int _salary, int _age) {
+        fio = _fio;
+        position = _position;
+        email = _email;
+        telephone = _telephone;
+        salary = _salary;
+        age = _age;
+ }
+    //Вывод информации о сотруднике таком-то (заголовок)
+    public void info() {
+        System.out.println("Информация о оструднике: " + fio);
+    }
+    //Вывод информации о сотруднике таком-то (параметры)
+    public void printInfo(){
+        System.out.println("ФИО: " + fio+ " Должность: " + position + " E-mail: " + email + " Телефон: " + telephone + " Зарплпта: " + salary + " Возраст: " + age);
+    }
+
+}
