@@ -1,0 +1,313 @@
+/**
+ * Created by SomeSound on 15.03.2016.
+ */
+public class MainClass {
+    public static void main(String[] args) {
+        // Вывод данных через цикл
+        Animal [] anims = new Animal[4];
+        anims[0] = new Human("Иван", "Белый", 30);
+        anims[1] = new Dog ("Шарик","Коричневый",5);
+        anims[2] = new Horse ("Молния", "Пятнистый", 10);
+        anims[3] = new Cat ("Барсик", "Белый", 15);
+
+        System.out.println("1. Результаты забега Человека, Собаки, Лошади и Котейки:\n");
+        for (int a = 0; a < 4; a++) {
+            anims[a].run(10);
+        }
+
+        System.out.println("\n2. Результаты заплыва Человека, Собаки, Лошади и Котейки:\n");
+        for (int a = 0; a < 4; a++) {
+            anims[a].swim(100);
+        }
+        System.out.println("\n3. Результаты пржков через барьер Человека, Собаки, Лошади и Котейки:\n");
+        for (int a = 0; a < 4; a++) {
+            anims[a].jump(2);
+        }
+
+        /*// Вывод данных по отдельности
+        Human hu = new Human("Иван", "Белый", 30);
+        Dog d = new Dog ("Шарик","Коричневый",5);
+        Horse h = new Horse ("Молния", "Пятнистый", 10);
+        Cat c = new Cat ("Барсик", "Белый", 15);
+
+        System.out.println("1. Результаты забега Человека, Собаки, Лошади и Котейки:\n");
+        hu.run(25);
+        d.run (15);
+        h.run(0);
+        c.run(5);
+        System.out.println("\n2. Результаты заплыва Человека, Собаки, Лошади и Котейки:\n");
+        hu.swim(20);
+        d.swim(20);
+        h.swim(20);
+        c.swim(20);
+        System.out.println("\n3. Результаты пржков через барьер Человека, Собаки, Лошади и Котейки:\n");
+        hu.jump(2);
+        d.jump(3);
+        h.jump(2);
+        c.jump(5);
+*/
+
+
+
+    }
+}
+
+
+/**
+ * Created by SomeSound on 15.03.2016.
+ */
+public abstract class Animal {
+
+    protected String name;
+    protected String color;
+    protected int age;
+    protected String animType;
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void printInfo (){
+        System.out.println("Имя: " + name + " Цвет: " + color + " Возраст: " + age);
+    };
+    public abstract void run (float i);
+
+    public void swim (float j)
+    {
+        System.out.println("Животное не умеет плавать!");
+    };
+
+    public abstract void jump (float k);
+
+
+}
+
+
+/**
+ * Created by SomeSound on 15.03.2016.
+ */
+public class Human extends Animal{
+    public Human(String name, String color, int age) {
+    this.name = name;
+    this.color = color;
+    this.age = age;
+    animType = "Человек";
+    }
+
+    @Override
+    public void run(float i) {
+        if (i == 0) {
+            System.out.println("Даже не пытайся обмануть меня - " +animType + " не бегал");}
+        else if (i < 0) {
+            System.out.println("Быть такого не может");
+        }
+        else if (i <= 15) {
+            System.out.println(animType + " пробежал " + i + " км");
+        }
+        else{
+            System.out.println(animType + " не пробежал");
+        }
+    }
+
+    @Override
+    public void swim(float j) {
+        if (j == 0) {
+            System.out.println("Даже не пытайся обмануть меня - " + animType + " не плавал");}
+        else if (j < 0) {
+            System.out.println("Быть такого не может");
+        }
+        else if (j <= 2000) {
+            System.out.println(animType + " проплыл " + j + " м");
+        }
+        else{
+            System.out.println(animType + " не проплыл");
+        }
+    }
+
+    @Override
+    public void jump(float k) {
+        if (k == 0) {
+            System.out.println("Даже не пытайся обмануть меня - " + animType + " не прыгал");}
+        else if (k < 0) {
+            System.out.println("Быть такого не может");
+        }
+        else if (k <= 2) {
+            System.out.println(animType + " перепрыгнул барьер высотой " + k + " м");
+        }
+        else{
+            System.out.println(animType + " не перепрыгнул");
+        }
+    }
+
+}
+
+/**
+ * Created by SomeSound on 15.03.2016.
+ */
+public class Dog extends Animal{
+    public Dog (String name, String color, int age) {
+        this.name = name;
+        this.color = color;
+        this.age = age;
+        animType = "Собака";
+    }
+
+
+    @Override
+    public void run(float i) {
+        if (i == 0) {
+            System.out.println("Даже не пытайся обмануть меня - " +animType + " не бегала");}
+        else if (i < 0) {
+            System.out.println("Быть такого не может");
+        }
+        else if (i < 10) {
+            System.out.println(animType + " пробежала " + i + " км");
+        }
+        else{
+            System.out.println(animType + " не пробежала");
+        }
+    }
+
+    @Override
+    public void swim(float j) {
+        if (j == 0) {
+            System.out.println("Даже не пытайся обмануть меня - " + animType + " не плавала");}
+        else if (j < 0) {
+            System.out.println("Быть такого не может");
+        }
+        else if (j < 500) {
+            System.out.println(animType + " проплыла " + j + " м");
+        }
+        else{
+            System.out.println(animType + " не проплыла");
+        }
+    }
+
+    @Override
+    public void jump(float k) {
+        if (k == 0) {
+            System.out.println("Даже не пытайся обмануть меня - " + animType + " не прыгала");
+        } else if (k < 0) {
+            System.out.println("Быть такого не может");
+        } else if (k <= 2) {
+            System.out.println(animType + " перепрыгнула барьер высотой " + k + " м");
+        } else {
+            System.out.println(animType + " не перепрыгнула");
+        }
+    }
+
+}
+
+
+/**
+ * Created by SomeSound on 15.03.2016.
+ */
+public class Cat extends Animal {
+    public Cat(String name, String color, int age) {
+        this.name = name;
+        this.color = color;
+        this.age = age;
+        animType = "Кот";
+    }
+
+
+    @Override
+    public void run(float i) {
+        if (i == 0) {
+            System.out.println("Даже не пытайся обмануть меня - " + animType + " не бегал");
+        } else if (i < 0) {
+            System.out.println("Быть такого не может");
+        } else if (i < 5) {
+            System.out.println(animType + " пробежал " + i + " км");
+        } else {
+            System.out.println(animType + " не пробежал");
+        }
+    }
+
+       @Override
+    public void jump(float k) {
+        if (k == 0) {
+            System.out.println("Даже не пытайся обмануть меня - " + animType + " не прыгал");
+        } else if (k < 0) {
+            System.out.println("Быть такого не может");
+        } else if (k <= 4) {
+            System.out.println(animType + " перепрыгнул барьер высотой " + k + " м");
+        } else {
+            System.out.println(animType + " не перепрыгнул");
+        }
+    }
+}
+
+
+/**
+ * Created by SomeSound on 15.03.2016.
+ */
+public class Horse extends Animal {
+
+    public Horse(String name, String color, int age) {
+        this.name = name;
+        this.color = color;
+        this.age = age;
+        animType = "Лошадь";
+    }
+
+
+    @Override
+    public void run(float i) {
+        if (i == 0) {
+            System.out.println("Даже не пытайся обмануть меня - " + animType + " не бегала");
+        } else if (i < 0) {
+            System.out.println("Быть такого не может");
+        } else if (i < 20) {
+            System.out.println(animType + " пробежала " + i + " км");
+        } else {
+            System.out.println(animType + " не пробежала");
+        }
+    }
+
+    @Override
+    public void swim(float j) {
+        if (j == 0) {
+            System.out.println("Даже не пытайся обмануть меня - " + animType + " не плавала");
+        } else if (j < 0) {
+            System.out.println("Быть такого не может");
+        } else if (j < 100) {
+            System.out.println(animType + " проплыла " + j + " м");
+        } else {
+            System.out.println(animType + " не проплыла");
+        }
+    }
+
+    @Override
+    public void jump(float k) {
+        if (k == 0) {
+            System.out.println("Даже не пытайся обмануть меня - " + animType + " не прыгала");
+        } else if (k < 0) {
+            System.out.println("Быть такого не может");
+        } else if (k <= 1) {
+            System.out.println(animType + " перепрыгнула барьер высотой " + k + " м");
+        } else {
+            System.out.println(animType + " не перепрыгнула");
+        }
+    }
+}
